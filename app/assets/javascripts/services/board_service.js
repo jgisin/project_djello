@@ -7,7 +7,9 @@ djello.factory('boardService',
 
     obj.boards = [];
 
-
+    obj.createBoard = function(id){
+      apiService.create('board', {id: id});
+    };
 
     return obj;
 }]);

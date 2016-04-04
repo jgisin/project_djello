@@ -1,0 +1,5 @@
+<div class="well">
+    <span class="glyphicon glyphicon-cog pull-right" ng-click="open({cardObj: card})"></span>
+    <b editable-text="card.title" onbeforesave="updateCard($data, card, 'title')">{{ card.title }}</b>
+    <p editable-textarea="card.description" e-cols="25" onbeforesave="updateCard($data, card,'description')">{{ card.description }}</p>
+</div>

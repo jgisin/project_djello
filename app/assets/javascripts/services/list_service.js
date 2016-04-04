@@ -6,6 +6,10 @@ djello.factory('listService', ['boardService', function(boardService){
         return board['lists'];
     };
 
+    obj.createList = function(id){
+        apiService.create('lists', {});
+    };
+
     return obj;
 
 }]);

@@ -29,9 +29,14 @@ var djello = angular.module('djello', ['ui.router', 'ui.bootstrap', 'restangular
                     }
                 })
                 .state('boardShow', {
-                  url: '/board/:id',
-                  templateUrl: 'templates/boardShow.html',
-                  controller: 'BoardShowCtrl'
+                    url: '/board/:id',
+                    templateUrl: 'templates/boardShow.html',
+                    controller: 'BoardCtrl',
+                    resolve: {
+                        data: ['apiService', function(apiService){
+                            return apiService.getData();
+                        }]
+                    }
                 });
 
         }])

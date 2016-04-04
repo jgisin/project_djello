@@ -11,31 +11,33 @@ MULTIPLIER = 3
 def generate_one_of_each
 
   puts "Generating users, boards, lists, and cards"
-  u = User.new
-  u.email = Faker::Internet.free_email
-  u.password = "qwerqwer"
-  u.save
 
   MULTIPLIER.times do
-    b = u.owned_boards.build
-    b.title = Faker::Book.title
-    b.save
+    u = User.new
+    u.email = Faker::Internet.free_email
+    u.password = "qwerqwer"
+    u.save
 
     MULTIPLIER.times do
-      l = b.lists.build
-      l.title = Faker::Superhero.name
-      l.description = Faker::ChuckNorris.fact
-      l.save
+      b = u.owned_boards.build
+      b.title = Faker::Book.title
+      b.save
 
       MULTIPLIER.times do
-        c = l.cards.build
-        c.title = Faker::Hipster.word
-        c.description = Faker::Hipster.sentence
-        c.save
+        l = b.lists.build
+        l.title = Faker::Superhero.name
+        l.description = Faker::ChuckNorris.fact
+        l.save
+
+        MULTIPLIER.times do
+          c = l.cards.build
+          c.title = Faker::Hipster.word
+          c.description = Faker::Hipster.sentence
+          c.save
+        end
       end
     end
   end
-
 end
 
 def generate_board_memberships

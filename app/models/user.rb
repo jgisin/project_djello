@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :board_memberships, class_name: "BoardMember", foreign_key: :member_id, dependent: :destroy
   has_many :board_subscriptions, :through => :board_memberships, source: :board
 
-  has_many :lists, through: :boards
+  has_many :lists, through: :owned_boards
 
   has_many :card_memberships, class_name: "CardMember", foreign_key: :member_id
   has_many :cards, through: :card_memberships

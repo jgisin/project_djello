@@ -1,0 +1,18 @@
+<div class="col-xs-4">
+    <div class="panel panel-default">
+        <div class="panel-header">
+            <h2 class="text-center" editable-text="list.title" onbeforesave="updateList($data, list, 'title')" ng-model="listTitle">{{ list["title"] }}</h2>
+            <p editable-textarea="list.description" onbeforesave="updateList($data, list, 'description')" e-cols="35">{{ list['description'] }}</p>
+        </div>
+        <div class="panel-body">
+            <div ng-repeat="card in list.cards | orderBy: 'id'" card-panel card="card">
+            </div>
+            <a class="text-center" ng-hide="showFooter" ng-click="toggleFooter()">Add a card</a>
+        </div>
+        <div class="panel-footer" ng-show="showFooter">
+            <textarea cols="30" ng-model="cardDescription"></textarea><br/>
+            <button class="btn-success" ng-click="createCard(list.id)">Add</button>
+            <a ng-click="toggleFooter()">Cancel</a>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,10 @@
-<h1>board index</h1>
+<div class="container">
+    <div class="row">
+        <h1>board index</h1>
 
+        <div ng-repeat="(k,v) in boards">
+            <a ui-sref="boardShow({ id: v.id })">{{v.title}}</a>
+        </div>
+    </div>
 
-<div ng-repeat="(k,v) in boards">
-    <a ui-sref="boardShow({ id: v.id })">{{v.title}}</a>
 </div>

@@ -21,5 +21,28 @@ djello.factory('apiService', ['Restangular', function(Restangular, boardService)
         });
     };
 
+    obj.create = function(item, queryParams, postParams){
+      return Restangular.all(item, queryParams).post(postParams);
+    };
+
+    obj.update = function(item, obj){
+        console.log(obj, obj.id);
+      Restangular.one(item, obj.id).get().then(function(object){
+          object.title = obj.title;
+          if(object.description){
+              object.description = obj.description;
+          }
+          object.put();
+      })
+    };
+
+    obj.delete = function(item, obj){
+      Restangular.one(item, obj.id).get().then(function(object){
+        object.remove();
+        obj.getData();
+      })
+    };
+
+
     return obj;
 }]);

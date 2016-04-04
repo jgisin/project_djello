@@ -1,3 +1,101 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "xeditable.css";
+@import "xeditable";
+
+//misc
+.glyphicon:hover, .glyphicon:focus {
+  color: #FCB733;
+  background-color: #4ABDAC;
+}
+
+
+hr {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #FC4A1A;
+}
+
+.thin {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #FC4A1A;
+}
+
+h1 {
+  padding-left: 8px;
+  font-family: Verdana;
+}
+
+h2,h3 {
+  font-family: Verdana;
+}
+p {
+  font-family: Georgia;
+}
+
+#small {
+  width: 150px;
+}
+
+#sidebar {
+  background-color: #4ABDAC;
+  height: 1000px;
+}
+
+//Nav
+
+.navbar-default {
+  background-color: #4ABDAC;
+  .navbar-brand {
+    color: white;
+  }
+  .navbar-text {
+    color: white;
+  }
+  .navbar-link {
+    color: white;
+  }
+}
+
+//Board Panels
+
+.panel {
+  box-shadow: grey 3px 3px;
+}
+.well {
+  background-color: white;
+}
+
+.panel-default {
+  background-color: #4ABDAC;
+}
+
+.panel-header {
+  background-color: #4ABDAC;
+  color: white;
+  p {
+    padding: 10px;
+    font-family: Georgia;
+  }
+}
+
+.panel-body {
+  background-color: #4ABDAC;
+  b{
+    border-bottom: 2px solid #FC4A1A;
+  }
+  a {
+    box-shadow: #2E2F30 2px 2px;
+    padding: 5px;
+    background-color: #FCB733;
+    color: white;
+  }
+}
+
+.panel-footer {
+  background-color: #4ABDAC;
+  a {
+    color: white;
+  }
+}
+

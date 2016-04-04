@@ -7,8 +7,8 @@
         </div>
         <% if user_signed_in? %>
           <div class="navbar-text pull-right">
-            <div class="navbar-link"><%= current_user.email %></div>
-            <%= link_to "Sign Out", destroy_user_session_path, class: "navbar-link", method: :delete %>
+            <a href="#/index" class="navbar-link"><%= current_user.email %></a>
+            <%= link_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", method: :delete %>
           </div>
         <% else %>
           <div class="navbar-text pull-right">

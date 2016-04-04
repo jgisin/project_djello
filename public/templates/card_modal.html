@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <div class="modal-title">
+        <h2>{{card.title}}</h2>
+    </div>
+    <a class="pull-right" ng-click="deleteCard(card)">Mark Completed</a>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-xs-12">
+            <p>{{card.description}}</p>
+            <hr class="thin">
+            <h3>Members</h3>
+            <div ng-repeat="member in card.members">
+                {{member.email}}
+            </div>
+        </div>
+
+    </div>
+
+</div>
