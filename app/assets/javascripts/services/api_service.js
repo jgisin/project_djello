@@ -31,13 +31,20 @@ djello.factory('apiService', ['Restangular', function(Restangular, boardService)
 
     obj.update = function(item, obj){
         console.log(obj, obj.id);
-      Restangular.one(item, obj.id).get().then(function(object){
+      return Restangular.one(item, obj.id).get().then(function(object){
           object.title = obj.title;
           if(object.description){
               object.description = obj.description;
           }
           object.put();
       })
+    };
+
+    obj.updateMove = function(item, obj){
+      return Restangular.one(item, obj.id).get().then(function(object){
+        object.list_id = obj.list_id
+        object.put();
+      });
     };
 
     obj.delete = function(item, obj){

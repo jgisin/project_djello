@@ -47,6 +47,6 @@ djello.controller('CardModalCtrl', ['$scope', '$uibModalInstance', 'cardObj', 'a
       $uibModalInstance.dismiss();
     });
 
-  }
+  };
 
 }]);

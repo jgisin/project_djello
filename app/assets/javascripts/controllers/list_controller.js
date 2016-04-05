@@ -27,4 +27,12 @@ djello.controller('ListCtrl', ['$scope','apiService', function($scope, apiServic
         });
     };
 
+    //Transfer Card Between Lists
+    $scope.addCard = function(list, item){
+      item.list_id = list.id;
+      apiService.updateMove('cards', item).then(function(data){
+        apiService.getData();
+      })
+    };
+
 }]);

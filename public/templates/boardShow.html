@@ -20,11 +20,29 @@
         <button ng-click="createList()" class="btn btn-warning">Add New List</button>
         <button class="btn btn-danger" ng-click="deleteBoard(board)">Delete Board</button>
     </div>
-     <br/>
+     <hr class="thin"/>
      <div class="row">
-         <div ng-repeat="member in board.members">
-             {{member.email}}
+         <h3 class="text-center" style="color: white;">Members</h3>
+         <div class="col-xs-8">
+             <select id="small" class="form-control" ng-model="boardMember">
+                 <option ng-repeat="user in users" value="{{user.id}}">
+                     {{user.email}}
+                 </option>
+             </select>
+         </div>
+         <div class="col-xs-4">
+             <button class="btn btn-success btn-sm" ng-click="addBoardMember(boardMember)">Add</button>
          </div>
      </div>
+     <div class="row">
+         <br/>
+         <div ng-repeat="member in board.members">
+             <br/>
+             <img src="http://lorempixel.com/30/30" />
+             <span style="color: white;">{{ member.email }}</span>
+             <a ng-click="removeMember(member)"><span class="glyphicon delete-icon glyphicon-remove pull-right"></span></a>
+         </div>
+     </div>
+     <hr class="thin"/>
 
 </div>

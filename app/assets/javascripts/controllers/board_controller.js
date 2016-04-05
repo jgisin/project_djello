@@ -1,7 +1,16 @@
 djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateParams', '$location',
   function($scope, Auth, data, apiService, $stateParams, $location){
 
-      //Current User
+    $scope.users = {};
+    var getUsers = function(){
+      apiService.getIndex('users').then(function(data){
+        $scope.users = data;
+      });
+    };
+    getUsers();
+
+    getUsers();
+    //Current User
       Auth.currentUser().then(function(user) {
       $scope.currentUser = user;
         // User was logged in, or Devise returned
@@ -16,6 +25,7 @@ djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateP
     $scope.boards = apiService.boards;
     //Board Show
     $scope.board = apiService.boards[$stateParams.id];
+    console.log($scope.boards);
 
     //Board Create
     $scope.createBoard = function(){
@@ -42,8 +52,26 @@ djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateP
       apiService.delete('boards', board).then(function(data){
         apiService.getData();
       });
-
     };
+
+    //BoardMember Create
+    $scope.addBoardMember = function(member_id){
+      apiService.create('board_members', {member_id: member_id, board_id: $scope.board.id}, {member_id: member_id, board_id: $scope.board.id}).then(function(data){
+        apiService.getData();
+      });
+    };
+
+    //BoardMember Destroy
+    $scope.removeMember = function(member){
+      console.log($scope.board.id, member.id);
+      var boardMember = _.find($scope.board.board_members, function(board_member){
+        return board_member.member_id === member.id;
+      });
+      apiService.delete('board_members', boardMember).then(function(data){
+        apiService.getData();
+      });
+    };
+
 
     //List Create
     $scope.createList = function(){

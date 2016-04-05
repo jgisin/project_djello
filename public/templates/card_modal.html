@@ -37,5 +37,13 @@
         </div>
 
     </div>
-
 </div>
+<div class="modal-body">
+    <hr class="thin"/>
+        <h3>Activities</h3>
+        <div ng-repeat="activity in card.activities | limitTo: -5 | orderBy: '-created_at'">
+            <p><b>{{activity.description}}</b>-{{ activity.created_at | date:'MM/dd/yyyy @ h:mma'}}</p>
+        </div>
+</div>
+
+

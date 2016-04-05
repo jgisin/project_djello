@@ -3,6 +3,14 @@
 @import "xeditable";
 
 //misc
+.glyphicon.delete-icon {
+  color: #FCB733;
+}
+
+.glyphicon.delete-icon:hover {
+  color: #FC4A1A;
+  background-color: #4ABDAC;
+}
 .glyphicon:hover, .glyphicon:focus {
   color: #FCB733;
   background-color: #4ABDAC;
@@ -50,6 +58,16 @@ p {
   background-color: #4ABDAC;
   height: 1000px;
 }
+
+
+div[dnd-list], div[dnd-list] > div {
+  position: relative;
+}
+
+div[dnd-list] .dndDraggingSource {
+  display: none;
+}
+
 
 //Nav
 
