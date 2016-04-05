@@ -8,8 +8,30 @@
 <div class="modal-body">
     <div class="row">
         <div class="col-xs-12">
+
             <p editable-textarea="card.description" onbeforesave="updateCard($data, card, 'description')" e-cols="60">{{card.description}}</p>
+            <hr class="thin"/>
+            <div class="col-xs-8">
+                <input type="text" ng-model="newTodo" class="form-control"/>
+            </div>
+            <div class="col-xs-3">
+                <button class="btn btn-sm btn-primary" ng-click="createTodo(card)">Create</button>
+            </div>
+    <br/>
+            <div ng-repeat="todo in card.todos">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" ng-model="todo.complete" ng-click="completeTodo(todo)"></td>
+                            <td ng-class="{done: todo.complete}">{{ todo.item }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
             <hr class="thin">
+
             <h3>Members</h3>
             <div ng-repeat="member in card.members">
                 <div class="row">

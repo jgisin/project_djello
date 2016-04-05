@@ -47,6 +47,13 @@ djello.factory('apiService', ['Restangular', function(Restangular, boardService)
       });
     };
 
+    obj.updateTodo = function(item, obj){
+      return Restangular.one(item, obj.id).get().then(function(todo){
+        todo.complete = obj.complete;
+        todo.put();
+      });
+    }
+
     obj.delete = function(item, obj){
       return Restangular.one(item, obj.id).get().then(function(object){
         object.remove();

@@ -16,6 +16,7 @@ gem 'angular_rails_csrf'
 gem 'faker', github: 'stympy/faker'
 gem 'binding_of_caller'
 gem 'devise'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'hirb'

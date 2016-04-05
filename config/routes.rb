@@ -1,6 +1,7 @@
 
 Rails.application.routes.draw do
 
+  resources :todos
   root 'staticpages#index'
 
   devise_for :users
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
       resources :users
       resources :card_members
       resources :board_members
+      resources :todos
     end
   end
 

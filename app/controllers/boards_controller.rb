@@ -6,7 +6,7 @@ class BoardsController < ApplicationController
     @boards = current_user.owned_boards
     respond_to do |format|
       format.json {render json: @boards.to_json(:include => [:board_members, :members,
-                                                             :lists => {include: [:cards => {include: [:members, :card_members, :activities]}]},
+                                                             :lists => {include: [:cards => {include: [:todos, :members, :card_members, :activities]}]},
                                                              ])}
     end
   end

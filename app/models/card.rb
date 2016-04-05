@@ -8,6 +8,8 @@ class Card < ActiveRecord::Base
   has_many :card_members, class_name: "CardMember"
   has_many :members, :through => :card_members, source: :user
 
+  has_many :todos, :dependent => :destroy
+
   has_many :activities, :as => :activable,
            :dependent => :destroy
 

@@ -94,5 +94,4 @@ djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateP
           function(newValue) {
               $scope.board = newValue;
           });
-
   }]);

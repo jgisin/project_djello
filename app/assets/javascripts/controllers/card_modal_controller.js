@@ -46,7 +46,19 @@ djello.controller('CardModalCtrl', ['$scope', '$uibModalInstance', 'cardObj', 'a
       apiService.getData();
       $uibModalInstance.dismiss();
     });
-
   };
+  
+  $scope.createTodo = function(card){
+    apiService.create('todos', {card_id: card.id}, {card_id: card.id, item: $scope.newTodo, complete: false}).then(function(data){
+      apiService.getData();
+    });
+  };
+  
+  $scope.completeTodo = function(todo){
+    apiService.updateTodo('todos', todo).then(function(data){
+      apiService.getData();
+    });
+  }
+
 
 }]);
