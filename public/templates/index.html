@@ -1,7 +1,8 @@
 <div class="container">
     <div class="row">
-        <h1>board index</h1>
-
+        <h1>board index <button class="btn btn-md btn-primary pull-right" ng-click="createBoard()">Add New Board</button></h1>
+    </div>
+    <div class="row">
         <div ng-repeat="(k,v) in boards">
             <a ui-sref="boardShow({ id: v.id })">{{v.title}}</a>
         </div>

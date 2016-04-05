@@ -17,6 +17,13 @@ djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateP
     //Board Show
     $scope.board = apiService.boards[$stateParams.id];
 
+    //Board Create
+    $scope.createBoard = function(){
+      apiService.create('boards', {}, {title: 'Give me a title', user_id: $scope.currentUser.id}).then(function(data){
+        apiService.getData();
+      })
+    };
+
     //Board Update
     $scope.updateBoard = function($data){
         $scope.board.title = $data;

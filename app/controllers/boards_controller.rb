@@ -17,20 +17,35 @@ class BoardsController < ApplicationController
     end
   end
 
-  def update
-    @board = Board.find(params[:id])
-    if @board.update(board_params)
-      respond_to do |format|
-        format.json {render :nothing => true, :status => :ok}
+  def create
+    @board = Board.new(board_params)
+    respond_to do |format|
+      if @board.save
+        format.json {render nothing: true, status: :ok}
+      else
+        format.json {render nothing: true, status: :unprocessable_entity}
       end
     end
   end
 
+  def update
+    @board = Board.find(params[:id])
+      respond_to do |format|
+        if @board.update(board_params)
+          format.json {render :nothing => true, :status => :ok}
+        else
+          format.json {render nothing: true, status: :unprocessable_entity}
+        end
+      end
+  end
+
   def destroy
     @board = Board.find(params[:id])
-    if @board.destroy
-      respond_to do |format|
+    respond_to do |format|
+      if @board.destroy
         format.json { render nothing: true, status: :ok}
+      else
+        format.json { render nothing: true, status: :unprocessable_entity}
       end
     end
   end

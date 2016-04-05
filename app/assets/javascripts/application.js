@@ -22,5 +22,7 @@
 //= require ui-bootstrap-tpls-1.2.5.min.js
 //= require angular-devise
 //= require xeditable.min.js
+//= require angular-drag-and-drop-lists.min.js
+
 
 //= require_tree .
