@@ -30,11 +30,27 @@ djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateP
           $location.path('board/' + currentPage);
     };
 
+    //Board Delete
+    $scope.deleteBoard = function(board){
+      apiService.delete('boards', board).then(function(data){
+        apiService.getData();
+      });
+
+    };
+
     //List Create
     $scope.createList = function(){
       apiService.create('lists', {board_id: $stateParams.id}, {board_id: $stateParams.id, title: 'Give me a title', description: 'Give me a description', user_id: $scope.currentUser.id});
         apiService.getData();
       };
+
+    //List Delete
+    $scope.deleteList = function(list){
+      apiService.delete('lists', list).then(function(data){
+        apiService.getData();
+      });
+
+    };
 
     //Board Refresh
       $scope.$watch(function() {

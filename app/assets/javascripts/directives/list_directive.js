@@ -5,7 +5,8 @@ djello.directive('listPanel', [function(){
       scope: {
           list: '=',
           showFooter: '=',
-          toggleFooter: '&'
+          toggleFooter: '&',
+          deleteList: '&'
       },
       templateUrl: 'templates/directives/list_panel.html',
       controller: 'ListCtrl'

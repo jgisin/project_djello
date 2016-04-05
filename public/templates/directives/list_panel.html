@@ -1,6 +1,7 @@
 <div class="col-xs-4">
     <div class="panel panel-default">
         <div class="panel-header">
+            <a ng-click="deleteList({list: list})"><span class="glyphicon glyphicon-remove pull-right"></span></a>
             <h2 class="text-center" editable-text="list.title" onbeforesave="updateList($data, list, 'title')" ng-model="listTitle">{{ list["title"] }}</h2>
             <p editable-textarea="list.description" onbeforesave="updateList($data, list, 'description')" e-cols="35">{{ list['description'] }}</p>
         </div>

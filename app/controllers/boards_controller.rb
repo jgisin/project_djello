@@ -5,7 +5,8 @@ class BoardsController < ApplicationController
   def index
     @boards = current_user.owned_boards
     respond_to do |format|
-      format.json {render json: @boards.to_json(:include => [:lists => {include: [:cards => {include: [:members]}]}, :members => {:include => :boards}])}
+      format.json {render json: @boards.to_json(:include => [:lists => {include: [:cards => {include: [:members, :card_members]}]},
+                                                             :members => {:include => :boards}])}
     end
   end
 
@@ -27,6 +28,11 @@ class BoardsController < ApplicationController
 
   def destroy
     @board = Board.find(params[:id])
+    if @board.destroy
+      respond_to do |format|
+        format.json { render nothing: true, status: :ok}
+      end
+    end
   end
 
   private

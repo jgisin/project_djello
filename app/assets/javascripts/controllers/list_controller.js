@@ -22,8 +22,9 @@ djello.controller('ListCtrl', ['$scope','apiService', function($scope, apiServic
 
     //List Create
     $scope.createCard = function(list_id){
-        apiService.create('cards', {list_id: list_id}, {list_id: list_id, title: 'Give me a title', description: $scope.cardDescription});
-        apiService.getData();
+        apiService.create('cards', {list_id: list_id}, {list_id: list_id, title: 'Give me a title', description: $scope.cardDescription}).then(function(data){
+          apiService.getData();
+        });
     };
 
 }]);

@@ -18,7 +18,7 @@ djello.controller('CardCtrl', ['$scope', 'apiService', '$uibModal', function($sc
             animation: true,
             templateUrl: 'templates/card_modal.html',
             controller: 'CardModalCtrl',
-            size: 'lg',
+            size: 'md',
             resolve: {
                 cardObj: function () {
                     return card;

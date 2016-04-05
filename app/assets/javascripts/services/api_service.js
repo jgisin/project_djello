@@ -21,6 +21,10 @@ djello.factory('apiService', ['Restangular', function(Restangular, boardService)
         });
     };
 
+    obj.getIndex = function(item){
+      return Restangular.all(item).getList();
+    };
+
     obj.create = function(item, queryParams, postParams){
       return Restangular.all(item, queryParams).post(postParams);
     };
@@ -37,10 +41,15 @@ djello.factory('apiService', ['Restangular', function(Restangular, boardService)
     };
 
     obj.delete = function(item, obj){
-      Restangular.one(item, obj.id).get().then(function(object){
+      return Restangular.one(item, obj.id).get().then(function(object){
         object.remove();
-        obj.getData();
       })
+    };
+
+    obj.deleteWithoutId = function(item, obj){
+      Restangular.all(item).getList(obj).then(function(data){
+        data.remove();
+      });
     };
 
 

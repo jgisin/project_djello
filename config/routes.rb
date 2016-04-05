@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :boards
       resources :lists
       resources :cards
+      resources :users
+      resources :card_members
     end
   end
 

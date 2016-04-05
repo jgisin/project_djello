@@ -3,7 +3,7 @@
          <div class="container">
              <h1 editable-text="board.title" onbeforesave="updateBoard($data)">{{board.title}}</h1>
              <hr class="red"/>
-             <div ng-repeat="list in board.lists | orderBy: 'id'" list-panel list="list" show-footer="showFooter" toggle-footer="toggleFooter()">
+             <div ng-repeat="list in board.lists | orderBy: 'id'" list-panel list="list" show-footer="showFooter" toggle-footer="toggleFooter()" delete-list="deleteList(list)">
              </div>
          </div>
      </div>
@@ -15,9 +15,12 @@
              <option ng-repeat="board in boards" value="{{board.id}}">{{board.title}}</option>
          </select>
      </div>
+     <br/>
     <div class="row">
         <button ng-click="createList()" class="btn btn-warning">Add New List</button>
+        <button class="btn btn-danger" ng-click="deleteBoard(board)">Delete Board</button>
     </div>
+     <br/>
      <div class="row">
          <div ng-repeat="member in board.members">
              {{member.email}}

@@ -1,6 +1,6 @@
 <div class="modal-header">
     <div class="modal-title">
-        <h2>{{card.title}}</h2>
+        <h2 editable-text="card.title" onbeforesave="updateCard($data, card, 'title')">{{card.title}}</h2>
     </div>
     <a class="pull-right" ng-click="deleteCard(card)">Mark Completed</a>
 </div>
@@ -8,12 +8,32 @@
 <div class="modal-body">
     <div class="row">
         <div class="col-xs-12">
-            <p>{{card.description}}</p>
+            <p editable-textarea="card.description" onbeforesave="updateCard($data, card, 'description')" e-cols="60">{{card.description}}</p>
             <hr class="thin">
             <h3>Members</h3>
             <div ng-repeat="member in card.members">
-                {{member.email}}
+                <div class="row">
+                    <div class="col-xs-2">
+                        <img src="http://lorempixel.com/50/50" />
+                    </div>
+                    <div class="col-xs-5">
+                        {{member.email}}
+                    </div>
+                    <div class="col-xs-3">
+                        <a ng-click="removeCardMember(member)">Remove Member</a>
+                    </div>
+                </div>
+                <br/>
             </div>
+            <div class="col-xs-6">
+                <select ng-model="cardMember" class="form-control">
+                    <option ng-repeat="user in users" value="{{ user.id }}">{{ user.email }}</option>
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <button class="btn btn-sm btn-success" ng-click="addCardMember()">Add Member</button>
+            </div>
+
         </div>
 
     </div>
