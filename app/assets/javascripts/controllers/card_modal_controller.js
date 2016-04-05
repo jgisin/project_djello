@@ -1,4 +1,4 @@
-djello.controller('CardModalCtrl', ['$scope', '$uibModalInstance', 'cardObj', 'apiService', function($scope, $uibModalInstance, cardObj, apiService){
+djello.controller('CardModalCtrl', ['$scope', '$uibModalInstance', 'cardObj', 'apiService', '_', function($scope, $uibModalInstance, cardObj, apiService, _){
 
   $scope.users = {};
   $scope.card = cardObj.cardObj;

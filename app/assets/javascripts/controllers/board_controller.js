@@ -1,5 +1,5 @@
-djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateParams', '$location',
-  function($scope, Auth, data, apiService, $stateParams, $location){
+djello.controller('BoardCtrl', ["$scope", "Auth", 'data', 'apiService', '$stateParams', '$location', '_',
+  function($scope, Auth, data, apiService, $stateParams, $location, _){
 
     $scope.users = {};
     var getUsers = function(){

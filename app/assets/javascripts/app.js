@@ -47,3 +47,7 @@ var djello = angular.module('djello', ['ui.router', 'ui.bootstrap', 'restangular
     .run(function(editableOptions) {
     editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
     });
+
+  djello.factory('_', ['$window', function($window){
+    return $window._;
+  }]);
